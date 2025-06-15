@@ -263,7 +263,7 @@ section h2 {
     display: inline-flex;
     align-items: center;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 0px;
     text-decoration: none;
     color: #fff;
     font-weight: bold;
