@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalLinksContainer.innerHTML = '';
         if (itchUrl) {
             // This now uses an <img> tag. Make sure 'images/itch-logo.jpg' exists!
-            modalLinksContainer.innerHTML += `<a href="${itchUrl}" target="_blank" class="modal-link-btn itch"><img src="Logo/itch.jpg" alt="itch.io logo" class="link-icon">itch.io</a>`;
+            modalLinksContainer.innerHTML += `<a href="${itchUrl}" target="_blank" class="modal-link-btn itch"><img src="Logo/itch.jpg" alt="itch.io logo" class="link-icon"></a>`;
         }
         if (youtubeUrl) {
             // This now uses an <img> tag. Make sure 'images/youtube-logo.jpg' exists!
