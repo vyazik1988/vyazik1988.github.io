@@ -279,9 +279,9 @@ section h2 {
 
 /* New styles for image icons */
 .modal-link-btn .link-icon {
-    width: 20px;
+    width: 40px;
     height: auto; /* Maintain aspect ratio */
-    margin-right: 8px; /* Space between icon and text */
+    /*margin-right: 8px;  Space between icon and text */
 }
 
 .modal-slider {
