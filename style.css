@@ -262,7 +262,6 @@ section h2 {
 .modal-link-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
     padding: 10px 15px;
     border-radius: 5px;
     text-decoration: none;
@@ -278,10 +277,11 @@ section h2 {
 .modal-link-btn.itch { background-color: #FA5C5C; }
 .modal-link-btn.youtube { background-color: #FF0000; }
 
-.modal-link-btn svg {
+/* New styles for image icons */
+.modal-link-btn .link-icon {
     width: 20px;
-    height: 20px;
-    fill: #fff;
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 8px; /* Space between icon and text */
 }
 
 .modal-slider {
