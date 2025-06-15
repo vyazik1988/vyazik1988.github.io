@@ -45,11 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
         modalLinksContainer.innerHTML = '';
         if (itchUrl) {
             // This now uses an <img> tag. Make sure 'images/itch-logo.jpg' exists!
-            modalLinksContainer.innerHTML += `<a href="${itchUrl}" target="_blank" class="modal-link-btn itch"><img src="images/itch-logo.jpg" alt="itch.io logo" class="link-icon">itch.io</a>`;
+            modalLinksContainer.innerHTML += `<a href="${itchUrl}" target="_blank" class="modal-link-btn itch"><img src="Logo/itch.jpg" alt="itch.io logo" class="link-icon">itch.io</a>`;
         }
         if (youtubeUrl) {
             // This now uses an <img> tag. Make sure 'images/youtube-logo.jpg' exists!
-            modalLinksContainer.innerHTML += `<a href="${youtubeUrl}" target="_blank" class="modal-link-btn youtube"><img src="images/youtube-logo.jpg" alt="YouTube logo" class="link-icon">YouTube</a>`;
+            modalLinksContainer.innerHTML += `<a href="${youtubeUrl}" target="_blank" class="modal-link-btn youtube"><img src="Logo/yt.jpg" alt="YouTube logo" class="link-icon">YouTube</a>`;
         }
         
         // Reset and setup slider
