@@ -58,19 +58,48 @@
 
         <section id="projects" class="projects">
             <div class="container">
-                <h2>My projects</h2>
+                <h2>My Projects</h2>
                 <div class="projects-grid">
-                    <div class="project-card">
-                        <h3>Project 1</h3>
-                        <p>Project description.</p>
+                    <!-- Project 1 -->
+                    <div class="project-card" 
+                         data-title="Stellar Odyssey" 
+                         data-description="An exciting space exploration game where players navigate through asteroid fields to discover new planets. My role was to ensure game logic and physics were bug-free."
+                         data-contributions='["Developed and executed 150+ test cases for gameplay mechanics.", "Identified and documented 30+ critical bugs related to physics and collision detection.", "Performed regression testing after each major update.", "Collaborated with developers to verify bug fixes."]'
+                         data-screenshots='["https://placehold.co/600x400/1a1a2e/FFF?text=Screenshot+1", "https://placehold.co/600x400/1a1a2e/FFF?text=Screenshot+2", "https://placehold.co/600x400/1a1a2e/FFF?text=Screenshot+3"]'
+                         data-itch-url="https://itch.io"
+                         data-youtube-url="https://youtube.com">
+                        <img src="https://placehold.co/400x300/1a1a2e/FFF?text=Stellar+Odyssey" alt="Stellar Odyssey Logo" class="project-logo">
+                        <h3>Stellar Odyssey</h3>
+                        <p>An exciting space exploration game where players navigate through asteroid fields to discover new planets.</p>
+                        <button class="more-info-btn">More Info</button>
                     </div>
-                    <div class="project-card">
-                        <h3>Project 2</h3>
-                        <p>Project description.</p>
+
+                    <!-- Project 2 -->
+                    <div class="project-card"
+                         data-title="Recipe Finder App"
+                         data-description="A mobile application that helps users find recipes based on the ingredients they have at home. I was responsible for API and UI testing."
+                         data-contributions='["Tested API endpoints for fetching recipes using Postman.", "Conducted usability testing on the user interface.", "Reported UI inconsistencies across different devices.", "Wrote test scenarios for user registration and login."]'
+                         data-screenshots='["https://placehold.co/600x400/e94560/FFF?text=App+Screen+1", "https://placehold.co/600x400/e94560/FFF?text=App+Screen+2"]'
+                         data-itch-url=""
+                         data-youtube-url="">
+                        <img src="https://placehold.co/400x300/e94560/FFF?text=Recipe+Finder" alt="Recipe Finder App Logo" class="project-logo">
+                        <h3>Recipe Finder App</h3>
+                        <p>A mobile application that helps users find recipes based on the ingredients they have at home.</p>
+                        <button class="more-info-btn">More Info</button>
                     </div>
-                    <div class="project-card">
-                        <h3>Prokect 3</h3>
-                        <p>Project description.</p>
+
+                    <!-- Project 3 -->
+                    <div class="project-card"
+                         data-title="E-commerce Platform"
+                         data-description="A full-featured e-commerce website. My focus was on testing the checkout process and payment gateway integration."
+                         data-contributions='["Designed and executed end-to-end tests for the shopping cart and checkout process.", "Performed compatibility testing across Chrome, Firefox, and Safari.", "Verified payment gateway integration in a sandbox environment.", "Logged defects and tracked them to resolution in Jira."]'
+                         data-screenshots='["https://placehold.co/600x400/5f788a/FFF?text=Website+1", "https://placehold.co/600x400/5f788a/FFF?text=Website+2", "https://placehold.co/600x400/5f788a/FFF?text=Website+3", "https://placehold.co/600x400/5f788a/FFF?text=Website+4"]'
+                         data-itch-url=""
+                         data-youtube-url="https://youtube.com">
+                         <img src="https://placehold.co/400x300/5f788a/FFF?text=E-commerce" alt="E-commerce Platform Logo" class="project-logo">
+                        <h3>E-commerce Platform</h3>
+                        <p>A full-featured e-commerce website with a focus on a seamless checkout process.</p>
+                        <button class="more-info-btn">More Info</button>
                     </div>
                 </div>
             </div>
@@ -82,6 +111,35 @@
             <p>© 2025 Ivan Anfalov.</p>
         </div>
     </footer>
+
+    <!-- Modal Structure (hidden by default) -->
+    <div id="project-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <div class="modal-grid">
+                <div class="modal-left">
+                    <h3>My Contributions</h3>
+                    <ul id="modal-contributions">
+                        <!-- Contribution items will be inserted here by JavaScript -->
+                    </ul>
+                </div>
+                <div class="modal-right">
+                    <h2 id="modal-title">Project Title</h2>
+                    <p id="modal-description">Project description.</p>
+                    <div id="modal-links" class="modal-links-container">
+                        <!-- Links will be inserted here by JavaScript -->
+                    </div>
+                    <div class="modal-slider">
+                        <img id="modal-screenshot" src="" alt="Project screenshot">
+                        <button class="slider-btn prev">&lt;</button>
+                        <button class="slider-btn next">&gt;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
 
 </body>
 </html>
