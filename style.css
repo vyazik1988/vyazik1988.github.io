@@ -262,8 +262,8 @@ section h2 {
 .modal-link-btn {
     display: inline-flex;
     align-items: center;
-    padding: 10px 15px;
-    border-radius: 0px;
+    padding: 1px 1px;
+    border-radius: 5px;
     text-decoration: none;
     color: #fff;
     font-weight: bold;
@@ -275,7 +275,7 @@ section h2 {
 }
 
 .modal-link-btn.itch { background-color: #FA5C5C; }
-.modal-link-btn.youtube { background-color: #FF0000; }
+.modal-link-btn.youtube { background-color: #BEBEBE; }
 
 /* New styles for image icons */
 .modal-link-btn .link-icon {
