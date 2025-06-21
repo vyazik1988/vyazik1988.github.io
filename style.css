@@ -161,8 +161,8 @@ section h2 {
     position: absolute;
     bottom: 8px;
     left: 8px;
-    width: 48px; /* Adjust size as needed */
-    height: 48px; /* Adjust size as needed */
+    width: 24x; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
     background-color: rgba(255, 255, 255, 1); /* Optional: semi-transparent background */
     border-radius: 2px;
     padding: 2px;
