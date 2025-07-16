@@ -108,16 +108,36 @@ section h2 {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
     text-align: center;
 }
 
-.skill-card {
-    background: #f9f9f9;
-    padding: 1.5rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skill-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 0.75rem;
+    transition: transform 0.3s;
+}
+
+.skill-icon:hover {
+    transform: scale(1.1);
+}
+
+.skill-item p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0;
 }
 
 /* Projects */
