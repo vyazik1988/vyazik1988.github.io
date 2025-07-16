@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalContributionsList = document.getElementById('modal-contributions');
     const modalLinksContainer = document.getElementById('modal-links');
 
+    const modalTeam = document.getElementById('modal-team');
+    const modalDuration = document.getElementById('modal-duration');
+
     // --- Slider Elements ---
     const sliderImage = document.getElementById('modal-screenshot');
     const prevBtn = document.querySelector('.slider-btn.prev');
@@ -24,6 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Get data from data-* attributes
         const title = projectCard.dataset.title;
         const description = projectCard.dataset.description;
+        const team = projectCard.dataset.team;
+        const duration = projectCard.dataset.duration;
         const contributions = JSON.parse(projectCard.dataset.contributions);
         const screenshots = JSON.parse(projectCard.dataset.screenshots);
         const itchUrl = projectCard.dataset.itchUrl;
@@ -32,6 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Populate basic info
         modalTitle.textContent = title;
         modalDescription.textContent = description;
+
+        modalTeam.textContent = team ? `Team: ${team}` : '';
+        modalDuration.textContent = duration ? `Duration: ${duration}` : '';
 
         // Populate contributions
         modalContributionsList.innerHTML = '';
