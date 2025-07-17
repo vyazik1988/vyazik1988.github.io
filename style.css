@@ -308,6 +308,7 @@ section h2 {
     font-size: 2rem;
     cursor: pointer;
     color: #888;
+    z-index: 1002;
 }
 
 .modal-grid {
@@ -413,7 +414,46 @@ section h2 {
     display: none;
 }
 
+/* Modal Navigation */
+.modal-nav-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(20, 20, 20, 0.6);
+    color: #fff;
+    border: none;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    z-index: 1001;
+    transition: background-color 0.3s;
+    width: 50px;
+    height: 50px;
+    line-height: 15px;
+}
+
+.modal-nav-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-nav-btn.prev {
+    left: 2vw;
+}
+
+.modal-nav-btn.next {
+    right: 2vw;
+}
+
+
 /* Responsive */
+@media (max-width: 1300px) {
+    .modal-nav-btn {
+        display: none;
+    }
+}
+
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column-reverse;

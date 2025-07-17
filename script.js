@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Modal Elements ---
+    // --- Elements ---
+    const allProjectCards = document.querySelectorAll('.project-card');
     const modal = document.getElementById('project-modal');
     const modalCloseBtn = document.querySelector('.modal-close-btn');
     const moreInfoBtns = document.querySelectorAll('.more-info-btn');
+    const modalNavPrev = document.getElementById('modal-nav-prev');
+    const modalNavNext = document.getElementById('modal-nav-next');
 
     // Modal content fields
     const modalTitle = document.getElementById('modal-title');
@@ -13,18 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTeam = document.getElementById('modal-team');
     const modalDuration = document.getElementById('modal-duration');
 
-
-    // --- Slider Elements ---
+    // Slider Elements
     const sliderImage = document.getElementById('modal-screenshot');
-    const prevBtn = document.querySelector('.slider-btn.prev');
-    const nextBtn = document.querySelector('.slider-btn.next');
+    const sliderPrevBtn = document.querySelector('.modal-slider .slider-btn.prev');
+    const sliderNextBtn = document.querySelector('.modal-slider .slider-btn.next');
 
+    // --- State ---
+    let currentProjectIndex = 0;
     let currentProjectScreenshots = [];
     let currentScreenshotIndex = 0;
 
     // --- Functions ---
     function populateModal(projectCard) {
-        // Get data from data-* attributes
         const title = projectCard.dataset.title;
         const description = projectCard.dataset.description;
         const team = projectCard.dataset.team;
@@ -34,13 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const itchUrl = projectCard.dataset.itchUrl;
         const youtubeUrl = projectCard.dataset.youtubeUrl;
 
-        // Populate basic info
         modalTitle.textContent = title;
         modalDescription.textContent = description;
         modalTeam.textContent = team ? `Team: ${team}` : '';
         modalDuration.textContent = duration ? `Duration: ${duration}` : '';
 
-        // Populate contributions
         modalContributionsList.innerHTML = '';
         contributions.forEach(item => {
             const li = document.createElement('li');
@@ -48,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
             modalContributionsList.appendChild(li);
         });
 
-        // Populate links using image tags instead of SVG
         modalLinksContainer.innerHTML = '';
         if (itchUrl) {
             modalLinksContainer.innerHTML += `<a href="${itchUrl}" target="_blank" class="modal-link-btn itch"><img src="Logo/itch.jpg" alt="itch.io logo" class="link-icon"></a>`;
@@ -57,43 +57,46 @@ document.addEventListener('DOMContentLoaded', () => {
             modalLinksContainer.innerHTML += `<a href="${youtubeUrl}" target="_blank" class="modal-link-btn youtube"><img src="Logo/yt.jpg" alt="YouTube logo" class="link-icon"></a>`;
         }
 
-        // Reset and setup slider
         currentProjectScreenshots = screenshots;
         currentScreenshotIndex = 0;
-        updateSlider();
+        updateScreenshotSlider();
     }
 
-    function updateSlider() {
-        if (currentProjectScreenshots.length === 0) {
+    function updateScreenshotSlider() {
+        if (!currentProjectScreenshots || currentProjectScreenshots.length === 0) {
             sliderImage.src = 'https://placehold.co/600x400/333/FFF?text=No+Screenshots';
-            prevBtn.classList.add('hidden');
-            nextBtn.classList.add('hidden');
+            sliderPrevBtn.classList.add('hidden');
+            sliderNextBtn.classList.add('hidden');
             return;
         }
 
         sliderImage.src = currentProjectScreenshots[currentScreenshotIndex];
-
-        // Show/hide prev/next buttons
-        prevBtn.classList.toggle('hidden', currentScreenshotIndex === 0);
-        nextBtn.classList.toggle('hidden', currentScreenshotIndex === currentProjectScreenshots.length - 1);
+        sliderPrevBtn.classList.toggle('hidden', currentScreenshotIndex === 0);
+        sliderNextBtn.classList.toggle('hidden', currentScreenshotIndex === currentProjectScreenshots.length - 1);
     }
 
-    function openModal() {
+    function updateModalNav() {
+        modalNavPrev.classList.toggle('hidden', currentProjectIndex === 0);
+        modalNavNext.classList.toggle('hidden', currentProjectIndex === allProjectCards.length - 1);
+    }
+
+    function openModal(index) {
+        currentProjectIndex = index;
+        populateModal(allProjectCards[currentProjectIndex]);
+        updateModalNav();
         modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
         modal.classList.add('hidden');
-        document.body.style.overflow = 'auto'; // Restore scrolling
+        document.body.style.overflow = 'auto';
     }
 
     // --- Event Listeners ---
-    moreInfoBtns.forEach(btn => {
+    moreInfoBtns.forEach((btn, index) => {
         btn.addEventListener('click', () => {
-            const projectCard = btn.closest('.project-card');
-            populateModal(projectCard);
-            openModal();
+            openModal(index);
         });
     });
 
@@ -105,33 +108,59 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-            closeModal();
+    // Modal navigation listeners
+    modalNavNext.addEventListener('click', () => {
+        if (currentProjectIndex < allProjectCards.length - 1) {
+            currentProjectIndex++;
+            populateModal(allProjectCards[currentProjectIndex]);
+            updateModalNav();
         }
     });
 
-    nextBtn.addEventListener('click', () => {
+    modalNavPrev.addEventListener('click', () => {
+        if (currentProjectIndex > 0) {
+            currentProjectIndex--;
+            populateModal(allProjectCards[currentProjectIndex]);
+            updateModalNav();
+        }
+    });
+
+    // Screenshot slider listeners
+    sliderNextBtn.addEventListener('click', () => {
         if (currentScreenshotIndex < currentProjectScreenshots.length - 1) {
             currentScreenshotIndex++;
-            updateSlider();
+            updateScreenshotSlider();
         }
     });
 
-    prevBtn.addEventListener('click', () => {
+    sliderPrevBtn.addEventListener('click', () => {
         if (currentScreenshotIndex > 0) {
             currentScreenshotIndex--;
-            updateSlider();
+            updateScreenshotSlider();
+        }
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (modal.classList.contains('hidden')) return;
+
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+        if (e.key === 'ArrowRight') {
+            modalNavNext.click(); 
+        }
+        if (e.key === 'ArrowLeft') {
+            modalNavPrev.click();
         }
     });
 
+    // Email copy listener
     const emailLink = document.getElementById('email-link');
     const copyNotification = document.getElementById('copy-notification');
-
     emailLink.addEventListener('click', (e) => {
         e.preventDefault();
         const email = emailLink.dataset.email;
-
         const textarea = document.createElement('textarea');
         textarea.value = email;
         document.body.appendChild(textarea);
