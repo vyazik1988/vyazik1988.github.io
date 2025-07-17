@@ -127,4 +127,28 @@ document.addEventListener('DOMContentLoaded', () => {
             updateSlider();
         }
     });
+
+        const emailLink = document.getElementById('email-link');
+    const copyNotification = document.getElementById('copy-notification');
+
+    emailLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const email = emailLink.dataset.email;
+
+        const textarea = document.createElement('textarea');
+        textarea.value = email;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy');
+            copyNotification.classList.add('show');
+            setTimeout(() => {
+                copyNotification.classList.remove('show');
+            }, 2000); 
+        } catch (err) {
+            console.error('Was not able to copy the email: ', err);
+            alert('Was not able to copy the email. Please, copy manually.');
+        }
+        document.body.removeChild(textarea);
+    });
 });

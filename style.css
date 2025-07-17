@@ -67,15 +67,44 @@ h1, h2, h3 {
     color: #ccc;
 }
 
+.social-links {
+    position: relative;
+    display: inline-flex;
+    gap: 15px;
+    align-items: center;
+}
+
 .social-links a {
     color: #fff;
-    margin-right: 10px;
+    margin-right: 0;
     text-decoration: none;
     transition: color 0.3s;
 }
 
-.social-links a:hover {
-    color: #a9a9a9;
+.social-links #email-link {
+    cursor: pointer;
+}
+
+.copy-notification {
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.copy-notification.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 .profile-photo {
