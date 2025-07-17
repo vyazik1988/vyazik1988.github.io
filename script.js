@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalDescription = document.getElementById('modal-description');
     const modalContributionsList = document.getElementById('modal-contributions');
     const modalLinksContainer = document.getElementById('modal-links');
-
     const modalTeam = document.getElementById('modal-team');
     const modalDuration = document.getElementById('modal-duration');
+
 
     // --- Slider Elements ---
     const sliderImage = document.getElementById('modal-screenshot');
@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Populate basic info
         modalTitle.textContent = title;
         modalDescription.textContent = description;
-
         modalTeam.textContent = team ? `Team: ${team}` : '';
         modalDuration.textContent = duration ? `Duration: ${duration}` : '';
 
@@ -52,14 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Populate links using image tags instead of SVG
         modalLinksContainer.innerHTML = '';
         if (itchUrl) {
-            // This now uses an <img> tag. Make sure 'images/itch-logo.jpg' exists!
             modalLinksContainer.innerHTML += `<a href="${itchUrl}" target="_blank" class="modal-link-btn itch"><img src="Logo/itch.jpg" alt="itch.io logo" class="link-icon"></a>`;
         }
         if (youtubeUrl) {
-            // This now uses an <img> tag. Make sure 'images/youtube-logo.jpg' exists!
             modalLinksContainer.innerHTML += `<a href="${youtubeUrl}" target="_blank" class="modal-link-btn youtube"><img src="Logo/yt.jpg" alt="YouTube logo" class="link-icon"></a>`;
         }
-        
+
         // Reset and setup slider
         currentProjectScreenshots = screenshots;
         currentScreenshotIndex = 0;
@@ -75,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         sliderImage.src = currentProjectScreenshots[currentScreenshotIndex];
-        
+
         // Show/hide prev/next buttons
         prevBtn.classList.toggle('hidden', currentScreenshotIndex === 0);
         nextBtn.classList.toggle('hidden', currentScreenshotIndex === currentProjectScreenshots.length - 1);
@@ -90,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.add('hidden');
         document.body.style.overflow = 'auto'; // Restore scrolling
     }
-    
+
     // --- Event Listeners ---
     moreInfoBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -128,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-        const emailLink = document.getElementById('email-link');
+    const emailLink = document.getElementById('email-link');
     const copyNotification = document.getElementById('copy-notification');
 
     emailLink.addEventListener('click', (e) => {
@@ -144,10 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
             copyNotification.classList.add('show');
             setTimeout(() => {
                 copyNotification.classList.remove('show');
-            }, 2000); 
+            }, 2000);
         } catch (err) {
             console.error('Was not able to copy the email: ', err);
-            alert('Was not able to copy the email. Please, copy manually.');
         }
         document.body.removeChild(textarea);
     });

@@ -152,9 +152,9 @@ section h2 {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    object-fit: contain; 
+    object-fit: contain;
     background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 0.75rem;
     transition: transform 0.3s;
     padding: 5px;
@@ -190,13 +190,13 @@ section h2 {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .project-image-container {
@@ -216,9 +216,9 @@ section h2 {
     position: absolute;
     bottom: 8px;
     left: 8px;
-    width: 24x; /* Adjust size as needed */
-    height: 24px; /* Adjust size as needed */
-    background-color: rgba(255, 255, 255, 1); /* Optional: semi-transparent background */
+    width: 24px;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 1);
     border-radius: 2px;
     padding: 2px;
     box-sizing: border-box;
@@ -230,7 +230,7 @@ section h2 {
 }
 
 .project-card p {
-    flex-grow: 1; /* Pushes the button to the bottom */
+    flex-grow: 1;
     margin-bottom: 1rem;
 }
 
@@ -313,7 +313,8 @@ section h2 {
     gap: 2rem;
 }
 
-.modal-left h3, .modal-right h2 {
+.modal-left h3,
+.modal-right h2 {
     margin-top: 0;
 }
 
@@ -355,14 +356,17 @@ section h2 {
     opacity: 0.85;
 }
 
-.modal-link-btn.itch { background-color: #FA5C5C; }
-.modal-link-btn.youtube { background-color: #BEBEBE; }
+.modal-link-btn.itch {
+    background-color: #FA5C5C;
+}
 
-/* New styles for image icons */
+.modal-link-btn.youtube {
+    background-color: #BEBEBE;
+}
+
 .modal-link-btn .link-icon {
     width: 40px;
-    height: auto; /* Maintain aspect ratio */
-    /*margin-right: 8px;  Space between icon and text */
+    height: auto;
 }
 
 .modal-slider {
@@ -373,7 +377,7 @@ section h2 {
 .modal-slider #modal-screenshot {
     width: 100%;
     border-radius: 5px;
-    min-height: 300px; /* Placeholder height */
+    min-height: 300px;
 }
 
 .slider-btn {
@@ -390,9 +394,17 @@ section h2 {
     line-height: 1;
 }
 
-.slider-btn.prev { left: 10px; }
-.slider-btn.next { right: 10px; }
-.slider-btn.hidden { display: none; }
+.slider-btn.prev {
+    left: 10px;
+}
+
+.slider-btn.next {
+    right: 10px;
+}
+
+.slider-btn.hidden {
+    display: none;
+}
 
 .hidden {
     display: none;
